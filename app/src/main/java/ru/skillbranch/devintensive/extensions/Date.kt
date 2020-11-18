@@ -1,5 +1,6 @@
-package ru.skillbranch.devintensive.utils
+package ru.skillbranch.devintensive.extensions
 
+import ru.skillbranch.devintensive.models.TimeUnits
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.roundToLong
@@ -21,7 +22,9 @@ fun Date.add(value: Int, unit: TimeUnits): Date {
 
 fun Date.humanizeDiff(): String {
     val ms = this.time - System.currentTimeMillis()
-    return if (ms > 0) humanizeAfter(ms) else humanizeBefore(-ms)
+    return if (ms > 0) humanizeAfter(ms) else humanizeBefore(
+        -ms
+    )
 }
 
 private fun humanizeAfter(ms: Long): String {
@@ -30,10 +33,20 @@ private fun humanizeAfter(ms: Long): String {
     if (sec < 45) return "через несколько секунд"
     if (sec < 75) return "через минуту"
     val min = sec / 60.0
-    if (min < 45) return humanizeAfter(min.roundToLong(), "минуту", "минуты", "минут")
+    if (min < 45) return humanizeAfter(
+        min.roundToLong(),
+        "минуту",
+        "минуты",
+        "минут"
+    )
     if (min < 75) return "через час"
     val hour = min / 60.0
-    if (hour < 22) return humanizeAfter(hour.roundToLong(), "час", "часа", "часов")
+    if (hour < 22) return humanizeAfter(
+        hour.roundToLong(),
+        "час",
+        "часа",
+        "часов"
+    )
     if (hour < 26) return "через день"
     val day = hour / 24.0
     if (day < 360) return humanizeAfter(day.roundToLong(), "день", "дня", "дней")
@@ -46,13 +59,28 @@ private fun humanizeBefore(ms: Long): String {
     if (sec < 45) return "несколько секунд назад"
     if (sec < 75) return "минуту назад"
     val min = sec / 60.0
-    if (min < 45) return humanizeBefore(min.roundToLong(), "минуту", "минуты", "минут")
+    if (min < 45) return humanizeBefore(
+        min.roundToLong(),
+        "минуту",
+        "минуты",
+        "минут"
+    )
     if (min < 75) return "час назад"
     val hour = min / 60.0
-    if (hour < 22) return humanizeBefore(hour.roundToLong(), "час", "часа", "часов")
+    if (hour < 22) return humanizeBefore(
+        hour.roundToLong(),
+        "час",
+        "часа",
+        "часов"
+    )
     if (hour < 26) return "день назад"
     val day = hour / 24.0
-    if (day < 360) return humanizeBefore(day.roundToLong(), "день", "дня", "дней")
+    if (day < 360) return humanizeBefore(
+        day.roundToLong(),
+        "день",
+        "дня",
+        "дней"
+    )
     return "более года назад"
 }
 

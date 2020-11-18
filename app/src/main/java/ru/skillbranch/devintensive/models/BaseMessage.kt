@@ -1,6 +1,6 @@
 package ru.skillbranch.devintensive.models
 
-import ru.skillbranch.devintensive.utils.humanizeDiff
+import ru.skillbranch.devintensive.extensions.humanizeDiff
 import java.lang.IllegalArgumentException
 import java.util.*
 import java.util.concurrent.atomic.AtomicLong

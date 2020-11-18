@@ -1,4 +1,4 @@
-package ru.skillbranch.devintensive.utils
+package ru.skillbranch.devintensive.models
 
 import kotlin.math.absoluteValue
 

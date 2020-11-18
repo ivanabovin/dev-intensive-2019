@@ -1,5 +1,7 @@
 package ru.skillbranch.devintensive.utils
 
+import ru.skillbranch.devintensive.extensions.replace
+import ru.skillbranch.devintensive.extensions.trimToNull
 import java.util.*
 
 object Utils {

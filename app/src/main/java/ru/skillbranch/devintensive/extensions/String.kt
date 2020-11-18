@@ -1,4 +1,4 @@
-package ru.skillbranch.devintensive.utils
+package ru.skillbranch.devintensive.extensions
 
 import kotlin.text.RegexOption.MULTILINE
 
