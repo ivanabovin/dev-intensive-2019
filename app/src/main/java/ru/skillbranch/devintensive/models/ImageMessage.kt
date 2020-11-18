@@ -8,7 +8,7 @@ class ImageMessage(
     chat: Chat,
     isIncoming: Boolean = false,
     date: Date = Date(),
-    val image: String
+    val image: String?
 ) : BaseMessage(id, from, chat, isIncoming, date) {
 
     override fun formatMessage(): String {

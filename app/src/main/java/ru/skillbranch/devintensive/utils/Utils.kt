@@ -5,8 +5,8 @@ import ru.skillbranch.devintensive.extensions.trimToNull
 import java.util.Locale
 
 object Utils {
-    fun parseFullName(fullName: String): Pair<String?, String?> {
-        val names = fullName.split(" ")
+    fun parseFullName(fullName: String?): Pair<String?, String?> {
+        val names = fullName?.split(" ") ?: listOf()
         return name(names, 0) to name(names, 1)
     }
 

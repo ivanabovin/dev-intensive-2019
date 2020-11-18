@@ -25,7 +25,7 @@ abstract class BaseMessage(
         private val nextId = AtomicLong(1)
 
         fun makeMessage(
-            from: User, chat: Chat, date: Date, type: String,
+            from: User, chat: Chat, date: Date, type: String?,
             payload: Any?, isIncoming: Boolean = false
         ): BaseMessage {
             val id = nextId.getAndIncrement().toString()

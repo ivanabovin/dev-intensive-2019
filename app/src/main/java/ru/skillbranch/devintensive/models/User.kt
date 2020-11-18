@@ -18,7 +18,7 @@ data class User(
     companion object Factory {
         private val nextId = AtomicLong(1)
 
-        fun makeUser(fullName: String): User {
+        fun makeUser(fullName: String?): User {
             val id = nextId.getAndIncrement().toString()
             val (firstName, lastName) = parseFullName(fullName)
             return User(id, firstName, lastName, null)
