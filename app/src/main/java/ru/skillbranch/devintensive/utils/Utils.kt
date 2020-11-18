@@ -2,7 +2,7 @@ package ru.skillbranch.devintensive.utils
 
 import ru.skillbranch.devintensive.extensions.replace
 import ru.skillbranch.devintensive.extensions.trimToNull
-import java.util.*
+import java.util.Locale
 
 object Utils {
     fun parseFullName(fullName: String): Pair<String?, String?> {

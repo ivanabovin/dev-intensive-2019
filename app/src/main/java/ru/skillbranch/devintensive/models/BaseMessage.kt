@@ -1,8 +1,7 @@
 package ru.skillbranch.devintensive.models
 
 import ru.skillbranch.devintensive.extensions.humanizeDiff
-import java.lang.IllegalArgumentException
-import java.util.*
+import java.util.Date
 import java.util.concurrent.atomic.AtomicLong
 
 abstract class BaseMessage(
@@ -25,8 +24,10 @@ abstract class BaseMessage(
     companion object AbstractFactory {
         private val nextId = AtomicLong(1)
 
-        fun makeMessage(from: User, chat: Chat, date: Date, type: String,
-            payload: Any?, isIncoming: Boolean = false): BaseMessage {
+        fun makeMessage(
+            from: User, chat: Chat, date: Date, type: String,
+            payload: Any?, isIncoming: Boolean = false
+        ): BaseMessage {
             val id = nextId.getAndIncrement().toString()
             return when (type) {
                 "text" -> TextMessage(id, from, chat, isIncoming, date, payload as String)

@@ -1,7 +1,7 @@
 package ru.skillbranch.devintensive.models
 
 import ru.skillbranch.devintensive.utils.Utils.parseFullName
-import java.util.*
+import java.util.Date
 import java.util.concurrent.atomic.AtomicLong
 
 data class User(

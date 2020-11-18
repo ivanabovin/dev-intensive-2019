@@ -1,8 +1,9 @@
 package ru.skillbranch.devintensive.extensions
 
-import ru.skillbranch.devintensive.models.TimeUnits
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
+import kotlin.math.absoluteValue
 import kotlin.math.roundToLong
 
 fun Date.format(format: String = "HH:mm:ss dd.MM.yy"): String {
@@ -100,4 +101,24 @@ private fun humanizeBefore(number: Long, singular: String, dual: String, plural:
         else -> plural
     }
     return "$number $unit назад"
+}
+
+enum class TimeUnits(
+    val singular: String,
+    val dual: String,
+    val plural: String
+) {
+    SECOND("секунду", "секунды", "секунд"),
+    MINUTE("минуту", "минуты", "минут"),
+    HOUR("час", "часа", "часов"),
+    DAY("день", "дня", "дней");
+
+    fun plural(value: Int): String {
+        val unit = when (value.rem(10).absoluteValue) {
+            1 -> singular
+            in 2..4 -> dual
+            else -> plural
+        }
+        return "$value $unit"
+    }
 }
